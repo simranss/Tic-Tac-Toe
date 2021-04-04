@@ -2,4 +2,5 @@
     <string name="app_name">Tic-Tac-Toe</string>
     <string name="play_again">Play Again</string>
     <string name="grid_image_desc">x and 0 position</string>
+    <string name="resultText">Player %1$d has won</string>
 </resources>
