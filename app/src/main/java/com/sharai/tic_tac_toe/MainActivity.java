@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
             if (gameState[winningPosition[0]] == gameState[winningPosition[1]] && gameState[winningPosition[1]] == gameState[winningPosition[2]] && gameState[winningPosition[0]] != 2) {
                 // someone has won!
                 Log.d(TAG, "someone has won!");
+                gridLayout.setEnabled(false);
                 resultTextView.setVisibility(View.VISIBLE);
                 resultTextView.setText(getString(R.string.resultText, (gameState[winningPosition[0]] + 1)));
             }
