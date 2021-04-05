@@ -12,8 +12,6 @@ import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.Arrays;
-
 public class MainActivity extends AppCompatActivity {
 
     Animation fadeIn;
