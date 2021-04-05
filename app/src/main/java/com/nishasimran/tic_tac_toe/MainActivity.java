@@ -16,8 +16,6 @@ import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
 
-    final private String TAG = "MainActivity";
-
     Animation fadeIn;
 
     // 0: x & 1: o
@@ -77,19 +75,16 @@ public class MainActivity extends AppCompatActivity {
             fadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in);
             piece.startAnimation(fadeIn);
 
+            String TAG = MainActivity.this.getString(R.string.main_activity);
             for (int[] winningPosition : winningPositions) {
-                Log.d(TAG, "winningPosition: " + Arrays.toString(winningPosition));
-                Log.d(TAG, "gameState[winningPosition[0]]: " + gameState[winningPosition[0]]);
-                Log.d(TAG, "gameState[winningPosition[1]]: " + gameState[winningPosition[1]]);
-                Log.d(TAG, "gameState[winningPosition[2]]: " + gameState[winningPosition[2]]);
 
                 if (gameState[winningPosition[0]] == gameState[winningPosition[1]] && gameState[winningPosition[1]] == gameState[winningPosition[2]] && gameState[winningPosition[0]] != 2) {
                     // someone has won!
-                    Log.d(TAG, "someone has won!");
+                    Log.d(TAG, MainActivity.this.getString(R.string.resultText, (gameState[winningPosition[0]] + 1)));
                     gameActive = false;
                     resultTextView.setVisibility(View.VISIBLE);
                     playAgainButton.setVisibility(View.VISIBLE);
-                    resultTextView.setText(getString(R.string.resultText, (gameState[winningPosition[0]] + 1)));
+                    resultTextView.setText(MainActivity.this.getString(R.string.resultText, (gameState[winningPosition[0]] + 1)));
                     return;
                 }
             }
@@ -104,11 +99,11 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
             if (draw) {
-                Log.d(TAG, "it is a draw");
+                Log.d(TAG, MainActivity.this.getString(R.string.resultDraw));
                 gameActive = false;
                 resultTextView.setVisibility(View.VISIBLE);
                 playAgainButton.setVisibility(View.VISIBLE);
-                resultTextView.setText(getString(R.string.resultDraw));
+                resultTextView.setText(MainActivity.this.getString(R.string.resultDraw));
             }
         }
     }
